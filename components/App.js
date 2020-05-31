@@ -6,8 +6,6 @@ import Menu from './menu/Menu.js'
 //import Projects from './components/pages/Projects.js'
 //import Contact from './components/pages/Contact.js'
 
-import './App.css';
-
 
 class App extends React.Component {
 
