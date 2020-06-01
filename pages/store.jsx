@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Card, Button } from 'react-bootstrap'
+import Head from 'next/head'
 
 
 class Store extends React.Component {
