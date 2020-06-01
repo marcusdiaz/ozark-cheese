@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Head from 'next/head'
 
 
 class Home extends React.Component {
