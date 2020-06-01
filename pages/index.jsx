@@ -9,9 +9,16 @@ class Home extends React.Component {
 
     render() {
         return(
-            <div>
-                <p>This is the Home page still.</p>
-            </div>
+            <Container className="md-container">
+                <Head>
+                    <title>ReactJS with react-bootstrap</title>
+                    <link rel="icon" href="/favicon-32x32.png" />
+                </Head>
+
+                <Container>
+                    <p>This is the Home page still.</p>
+                </Container>
+            </Container>
         );
     }
 }
