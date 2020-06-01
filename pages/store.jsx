@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Row, Card, Button } from 'react-bootstrap'
 
 
 class Store extends React.Component {
@@ -9,9 +10,16 @@ class Store extends React.Component {
 
     render() {
         return(
-            <div>
-                <p>This is the Store page.</p>
-            </div>
+        <Container className="lg-container">
+            <Head>
+                <title>ReactJS with react-bootstrap</title>
+                <link rel="icon" href="/favicon-32x32.png" />
+            </Head>
+
+            <Container>
+                <p>This is the Store page still.</p>
+            </Container>
+        </Container>
         );
     }
 }
