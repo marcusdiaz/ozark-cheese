@@ -19,30 +19,13 @@ class Menu extends React.Component {
         return(
             <div>
                 <Navbar bg="light" expand="lg">
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand href="#home">Ozark Cheddar</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="blog">Blog</Nav.Link>
-                            <Nav.Link href="projects">Projects</Nav.Link>
-                            <NavDropdown title="Contact" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Social</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Email</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">SomethingElse</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown>
+                            <Nav.Link href="blog">Store</Nav.Link>
                         </Nav>
-                        <Form inline>
-                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
-                        <Form inline>
-                            <FormControl type="text" placeholder="User" className="mr-sm-2" />
-                            <FormControl type="text" placeholder="Password" className="mr-sm-2" />
-                            <Button variant="outline-success">Login</Button>
-                        </Form>
                     </Navbar.Collapse>
                 </Navbar>
             </div>
