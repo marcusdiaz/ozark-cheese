@@ -24,7 +24,7 @@ class Menu extends React.Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="blog">Store</Nav.Link>
+                            <Nav.Link href="store">Store</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
