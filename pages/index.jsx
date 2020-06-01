@@ -11,7 +11,7 @@ class Home extends React.Component {
 
     render() {
         return(
-            <Container className="md-container">
+            <Container className="lg-container">
                 <Head>
                     <title>ReactJS with react-bootstrap</title>
                     <link rel="icon" href="/favicon-32x32.png" />
