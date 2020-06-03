@@ -11,9 +11,13 @@ const client = Client.buildClient({
 
 class Store extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
+
+constructor(props) {
+    super(props);
+    this.updateQuantityInCart = this.updateQuantityInCart.bind(this);
+    this.removeLineItemInCart = this.removeLineItemInCart.bind(this);
+    this.handleCartClose = this.handleCartClose.bind(this);
+}
 
     render() {
         return(
