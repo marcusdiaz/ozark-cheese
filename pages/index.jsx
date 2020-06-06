@@ -4,7 +4,6 @@ import { Container, Row, Card, Button } from 'react-bootstrap'
 
 import Menu from '../components/menu/Menu'
 
-
 class Home extends React.Component {
 
     constructor(props) {
