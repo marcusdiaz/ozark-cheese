@@ -8,14 +8,13 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { connect } from 'react-redux';
 
-import Products from './shopify/Products';
+import Products from '../components/shopify/Products';
 
 const client = Client.buildClient({
   storefrontAccessToken: '2a6e3bfb99429c40f650581ec954bc19',
   domain: 'hemp-house-supply.myshopify.com'
 }); 
 
-export default connect((state) => state)(Store);
 
 class Store extends React.Component {
 
@@ -28,46 +27,49 @@ class Store extends React.Component {
        this.handleCartClose = this.handleCartClose.bind(this);
        this.addVariantToCart = this.addVariantToCart.bind(this);
 
-       store.dispatch({type: 'CLIENT_CREATED', payload: client});
 
-       connect((state) => state;)
+       store.dispatch({type: 'CLIENT_CREATED', payload: client});
 
     }
 
-updateQuantityInCart(lineItemId, quantity) {
-    const state = store.getState(); // state from redux store
-    const checkoutId = state.checkout.id
-    const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
-    state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
-      store.dispatch({type: 'UPDATE_QUANTITY_IN_CART', payload: {checkout: res}});
-    });
-}
-removeLineItemInCart(lineItemId) {
-    const state = store.getState(); // state from redux store
-    const checkoutId = state.checkout.id
-    state.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
-      store.dispatch({type: 'REMOVE_LINE_ITEM_IN_CART', payload: {checkout: res}});
-    });
-}
-handleCartClose() {
-    store.dispatch({type: 'CLOSE_CART'});
-}
-handleCartOpen() {
-    store.dispatch({type: 'OPEN_CART'});
-}
+    updateQuantityInCart(lineItemId, quantity) {
+        const state = store.getState(); // state from redux store
+        const checkoutId = state.checkout.id
+        const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
+        state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
+          store.dispatch({type: 'UPDATE_QUANTITY_IN_CART', payload: {checkout: res}});
+        });
+    }
 
-addVariantToCart(variantId, quantity) {
-    const state = store.getState(); // state from redux store
-    const lineItemsToAdd = [{variantId, quantity: parseInt(quantity, 10)}]
-    const checkoutId = state.checkout.id
-    state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: {isCartOpen: true, checkout: res}});
-    });
-}
+    removeLineItemInCart(lineItemId) {
+      const state = store.getState(); // state from redux store
+      const checkoutId = state.checkout.id
+      state.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
+        store.dispatch({type: 'REMOVE_LINE_ITEM_IN_CART', payload: {checkout: res}});
+      });
+    }
+
+    handleCartClose() {
+      store.dispatch({type: 'CLOSE_CART'});
+    }
+
+    handleCartOpen() {
+      store.dispatch({type: 'OPEN_CART'});
+    }
+
+    addVariantToCart(variantId, quantity) {
+      const state = store.getState(); // state from redux store
+      const lineItemsToAdd = [{variantId, quantity: parseInt(quantity, 10)}]
+      const checkoutId = state.checkout.id
+      state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
+        store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: {isCartOpen: true, checkout: res}});
+        });
+    }
 
     render() {
 
         const state = store.getState();
+        connect((state) => state)(Store);
 
         return(
         <Container className="lg-container">
@@ -101,4 +103,7 @@ addVariantToCart(variantId, quantity) {
     }
 }
 
-export default Store;
+export default connect((state) => state)(Store);
+//export default Store;
+
+
