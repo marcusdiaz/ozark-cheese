@@ -1,13 +1,11 @@
 import React from 'react';
-import { Container, Row, Card, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import Head from 'next/head'
 import Menu from "../components/menu/Menu"
 import Client from 'shopify-buy'
 import Cart from '../components/shopify/Cart'
 import { Provider } from 'react-redux';
-import store from './store';
-import { connect } from 'react-redux';
-
+import store from '../components/store';
 import Products from '../components/shopify/Products';
 
 const client = Client.buildClient({
@@ -15,12 +13,10 @@ const client = Client.buildClient({
   domain: 'hemp-house-supply.myshopify.com'
 }); 
 
-
 class Store extends React.Component {
 
     constructor(props) {
        super(props);
-
 
        this.updateQuantityInCart = this.updateQuantityInCart.bind(this);
        this.removeLineItemInCart = this.removeLineItemInCart.bind(this);
@@ -69,12 +65,12 @@ class Store extends React.Component {
     render() {
 
         const state = store.getState();
-        connect((state) => state)(Store);
+        const { checkout, isCartOpen } = state;
 
         return(
         <Container className="lg-container">
          <Provider store={store}>
-          <IntlProvider locale={locale} messages={flattenMessages(messages[locale.substring(0, 2)])}>
+          {/* <IntlProvider locale={locale} messages={flattenMessages(messages[locale.substring(0, 2)])}> */}
             <Head>
                 <title>ReactJS with react-bootstrap</title>
                 <link rel="icon" href="/favicon-32x32.png" />
@@ -90,20 +86,19 @@ class Store extends React.Component {
                 </div>{/*/.service-content-one*/}
             </Container>
             <Cart
-               checkout={this.state.checkout}
-               isCartOpen={this.state.isCartOpen}
+               checkout={checkout}
+               isCartOpen={isCartOpen}
                handleCartClose={this.handleCartClose}
                updateQuantityInCart={this.updateQuantityInCart}
                removeLineItemInCart={this.removeLineItemInCart}
             />
-          </IntlProvider>
+          {/* </IntlProvider> */}
          </Provider>
         </Container>
         );
     }
 }
 
-export default connect((state) => state)(Store);
-//export default Store;
+export default Store;
 
 

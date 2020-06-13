@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import Product from './Product';
+import React, { Component } from "react";
+import Product from "./Product";
 
 class Products extends Component {
   render() {
-    let products = this.props.products.map((product) => {
-      return (
-        <Product
-          addVariantToCart={this.props.addVariantToCart}
-          client={this.props.client}
-          key={product.id.toString()}
-          product={product}
-        />
-      );
-    });
+    const { products, addVariantToCart, client } = this.props;
+    if (products) {
+      const productComponents = products.map((product) => {
+        return (
+          <Product
+            addVariantToCart={addVariantToCart}
+            client={client}
+            key={product.id.toString()}
+            product={product}
+          />
+        );
+      });
 
-    return (
-      <div className="Product-wrapper">
-        {products}
-      </div>
-    );
+      return <div className="Product-wrapper">{productComponents}</div>;
+    }
+    return <div className="Product-wrapper">No products found!</div>;
   }
 }
 
